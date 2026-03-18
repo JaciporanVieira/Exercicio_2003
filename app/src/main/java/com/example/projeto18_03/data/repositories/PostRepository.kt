@@ -8,4 +8,8 @@ class PostRepository {
         return RetrofitInstance.api.getPosts();
     }
 
+    suspend fun fetchPostById(id:Int): Post{
+        return RetrofitInstance.api.getPostById(id);
+    }
+
 }
