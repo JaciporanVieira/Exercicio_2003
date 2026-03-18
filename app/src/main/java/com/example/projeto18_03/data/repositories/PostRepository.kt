@@ -7,4 +7,5 @@ class PostRepository {
     suspend fun fetchPosts():List<Post> {
         return RetrofitInstance.api.getPosts();
     }
+
 }
