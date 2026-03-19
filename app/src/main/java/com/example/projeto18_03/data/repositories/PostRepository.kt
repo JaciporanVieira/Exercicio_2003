@@ -13,5 +13,9 @@ class PostRepository {
         return RetrofitInstance.api.getPostById(id);
     }
 
+    suspend fun fetchAddPost(post:Post): Post{
+        return RetrofitInstance.api.addPost(post)
+    }
+
 
 }

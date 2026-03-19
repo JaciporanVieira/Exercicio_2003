@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,7 +20,11 @@ import com.example.projeto18_03.ui.components.PostCard
 import com.example.projeto18_03.viewmodels.PostViewModel
 
 @Composable
-fun ListPostScreen(viewModel: PostViewModel = viewModel(), navController: NavHostController) {
+fun ListPostScreen(
+    viewModel: PostViewModel = viewModel(),
+    navController: NavHostController,
+    snackBarHostState: SnackbarHostState
+) {
     LaunchedEffect(Unit) {
         viewModel.loadPosts()
     }
@@ -32,6 +37,13 @@ fun ListPostScreen(viewModel: PostViewModel = viewModel(), navController: NavHos
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Buscar por ID")
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(
+            onClick = {navController.navigate("create_post")},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Criar novo Post")
         }
         Spacer(modifier = Modifier.height(16.dp))
 

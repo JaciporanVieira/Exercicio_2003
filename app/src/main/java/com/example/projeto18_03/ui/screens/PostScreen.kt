@@ -5,10 +5,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.projeto18_03.data.models.Post
 import com.example.projeto18_03.ui.components.PostCard
 import com.example.projeto18_03.viewmodels.PostViewModel
 
@@ -27,8 +25,9 @@ import com.example.projeto18_03.viewmodels.PostViewModel
 
 fun PostScreen(
     navController: NavHostController,
-    viewModel: PostViewModel = viewModel()
- ) {
+    viewModel: PostViewModel = viewModel(),
+    snackBarHostState: SnackbarHostState
+) {
     var postId by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.padding(16.dp)) {
