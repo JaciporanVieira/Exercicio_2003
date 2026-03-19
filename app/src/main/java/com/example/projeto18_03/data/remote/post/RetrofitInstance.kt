@@ -1,6 +1,5 @@
-package com.example.projeto18_03.data.remote
+package com.example.projeto18_03.data.remote.post
 
-import com.google.gson.internal.GsonBuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -14,4 +13,6 @@ object RetrofitInstance {
             .build()
             .create(ApiService::class.java)
     }
+
+
 }

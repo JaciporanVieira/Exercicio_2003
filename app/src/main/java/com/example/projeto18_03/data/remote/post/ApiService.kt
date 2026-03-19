@@ -1,8 +1,7 @@
-package com.example.projeto18_03.data.remote
+package com.example.projeto18_03.data.remote.post
 
 import com.example.projeto18_03.data.models.Post
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
