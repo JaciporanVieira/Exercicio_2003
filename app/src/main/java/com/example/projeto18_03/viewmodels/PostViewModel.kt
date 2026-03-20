@@ -64,6 +64,22 @@ class PostViewModel: ViewModel() {
         }
     }
 
+    fun deletePost(id:Int){
+        viewModelScope.launch {
+            isLoading = true
+            errorMessage = null
+            try{
+                PostRepository().fetchDeletePost(id)
+                loadPosts()
+            }catch (e: Exception){
+                errorMessage = "Erro ao deletar o post"
+                e.printStackTrace()
+            } finally {
+                isLoading = false
+            }
+        }
+    }
+
     fun clearError(){
         errorMessage = null
     }

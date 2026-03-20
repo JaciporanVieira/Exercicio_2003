@@ -18,7 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.example.projeto18_03.data.models.Post
 import com.example.projeto18_03.ui.components.PostCard
+import com.example.projeto18_03.ui.components.PostDetailsDialog
 import com.example.projeto18_03.viewmodels.PostViewModel
 
 @Composable
@@ -29,6 +31,8 @@ fun PostScreen(
     snackBarHostState: SnackbarHostState
 ) {
     var postId by remember { mutableStateOf("") }
+
+    var selectedPost by remember { mutableStateOf<Post?>(null) }
 
     Column(modifier = Modifier.padding(16.dp)) {
         Text("Buscar por Id")
@@ -64,10 +68,19 @@ fun PostScreen(
             Text("Voltar")
         }
         viewModel.selectedPost?.let { post ->
-            PostCard(post)
+            PostCard(
+                post, onDeleteClick = { viewModel.deletePost(it) },
+                onClick = { selectedPost = it }
+            )
         }?: Text("Nenhum Post encontrado")
     }
-
+    selectedPost?.let {
+            post ->
+        PostDetailsDialog(
+            post,
+            onDismiss = { selectedPost = null }
+        )
+    }
 
 
 

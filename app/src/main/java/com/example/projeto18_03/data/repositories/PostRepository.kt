@@ -17,5 +17,12 @@ class PostRepository {
         return RetrofitInstance.api.addPost(post)
     }
 
+    suspend fun fetchDeletePost(id:Int){
+        RetrofitInstance.api.deletePost(id)
+    }
+
+
+
+
 
 }
