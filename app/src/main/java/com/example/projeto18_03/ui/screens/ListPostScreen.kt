@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,13 +34,30 @@ fun ListPostScreen(
     snackBarHostState: SnackbarHostState
 ) {
     var selectedPost by remember { mutableStateOf<Post?>(null) }
+    var searchQuery by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit) {
         viewModel.loadPosts()
     }
+    LaunchedEffect(viewModel.errorMessage) {
+        viewModel.errorMessage?.let {
+            snackBarHostState.showSnackbar(it)
+            viewModel.clearError()
+        }
+    }
 
     Column(modifier = Modifier.padding(16.dp)) {
         Text("Lista de Posts")
+        Spacer(modifier = Modifier.height(8.dp))
+        OutlinedTextField(
+            value = searchQuery,
+            onValueChange = {
+                searchQuery = it
+                viewModel.filterPostsByTitle(it)
+            },
+            label = { Text("Buscar por título")},
+            modifier = Modifier.fillMaxWidth()
+        )
         Spacer(modifier = Modifier.height(8.dp))
         Button(
             onClick = {navController.navigate("post_by_id")},

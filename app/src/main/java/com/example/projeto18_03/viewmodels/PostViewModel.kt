@@ -12,23 +12,41 @@ import com.example.projeto18_03.data.repositories.PostRepository
 import kotlinx.coroutines.launch
 
 class PostViewModel: ViewModel() {
+
+    private var allPosts = listOf<Post>()
+
     var posts  = mutableStateListOf<Post>()
         private set
     var selectedPost by mutableStateOf<Post?>(null)
         private set
-
     var isLoading by mutableStateOf(false)
     var errorMessage by mutableStateOf<String?>(null)
 
     fun loadPosts(){
         viewModelScope.launch {
+            isLoading = true
+            errorMessage = null
             try {
+                val response = PostRepository().fetchPosts()
+                allPosts = response
                 posts.clear()
-                posts.addAll(PostRepository().fetchPosts())
+                posts.addAll(response)
             }catch (e: Exception){
                 e.printStackTrace()
+            }finally {
+                isLoading = false
             }
         }
+    }
+    fun filterPostsByTitle(query: String){
+        val filtered =
+            if(query.isBlank()){
+                allPosts
+            }else{
+                allPosts.filter { it.title.contains(query, ignoreCase = true) }
+            }
+        posts.clear()
+        posts.addAll(filtered)
     }
 
     fun searchPostById(id:Int){
