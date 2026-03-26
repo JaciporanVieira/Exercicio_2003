@@ -20,6 +20,8 @@ Este repositório contém um projeto Android desenvolvido para fins de estudo, f
 * **Gerenciamento de Estado:** `State` e `MutableState` com ViewModels.
 * **IDE:** Android Studio Ladybug | 2024.2.2
 
+---
+
 ## 📦 Estrutura de Pastas
 
 A organização do código segue as melhores práticas para escalabilidade:
@@ -34,11 +36,20 @@ com.example.Exercicio_2003
 └── MainActivity.kt
 ```
 
+---
+
 ## 📝 Considerações Finais
 
 Este projeto foi desenvolvido como um exercício prático para consolidar conhecimentos em Android Mobile Development.
 Sinta-se à vontade para explorar o código e sugerir melhorias!
 
+---
+
 ## 👨‍💻 Autor
 
-**Jaciporan Vieira** 🚀
+**Jaciporan Vieira**
+* 💼 Desenvolvedor FullStack
+* ☁️ Experiência com Cloud e Java
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jaciporan-vieira-silva-483564158/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:jaciporan@email.com)
