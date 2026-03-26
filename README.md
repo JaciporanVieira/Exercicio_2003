@@ -12,6 +12,8 @@ Este repositório contém um projeto Android desenvolvido para fins de estudo, f
 - 🧩 **Componentes Customizados:** Uso de `PostCard.kt` para reaproveitamento de interface.
 - ✅ **Feedback Visual:** Implementação de `Checkboxes` e ícones de status para interação do usuário.
 
+---
+
 ## 🛠 Tecnologias e Ferramentas
 
 * **Linguagem:** [Kotlin](https://kotlinlang.org/)
