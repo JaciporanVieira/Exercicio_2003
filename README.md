@@ -25,7 +25,7 @@ Este repositório contém um projeto Android desenvolvido para fins de estudo, f
 A organização do código segue as melhores práticas para escalabilidade:
 
 ```text
-com.example.projeto18_03
+com.example.Exercicio_2003
 ├── data          # Modelos de dados (Entity/Post)
 ├── ui
 │   ├── components # Componentes (PostCard, etc.)
